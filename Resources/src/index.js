@@ -4,14 +4,14 @@ var HelloWorld = React.createClass({
         return <div>Hello World</div>;
     }
 });
-<<<<<<< Updated upstream:Resources/src/index.js
+
 
 
 
 
 React.render(<HelloWorld />, document.getElementById('app'));
-=======
- 
+
+
 React.render(<HelloWorld />, document.getElementById('app'));
 
 // React.render(
