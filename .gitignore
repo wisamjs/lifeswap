@@ -1,3 +1,4 @@
 client/app/build/.module-cache
 client/bower_components/
 Resources/
+node_modules/
