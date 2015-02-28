@@ -5,4 +5,4 @@ var HelloWorld = React.createClass({displayName: "HelloWorld",
     }
 });
 
-React.render( React.createElement(HelloWorld, null) , document.getElementById('app'));
+React.render( React.createElement(HelloWorld, null/) , document.getElementById('app'));

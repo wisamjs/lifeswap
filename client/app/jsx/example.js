@@ -5,4 +5,4 @@ var HelloWorld = React.createClass({
     }
 });
 
-React.render( < HelloWorld /> , document.getElementById('app'));
+React.render( < HelloWorld / > , document.getElementById('app'));
