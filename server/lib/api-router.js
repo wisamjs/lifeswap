@@ -10,7 +10,8 @@ var _ = require('lodash');
 var routes = [{
     method: 'POST',
     endpoint: 'destination',
-    handler: mock.saveDestination}, {
+    handler: mock.saveDestination
+}, {
     method: 'POST',
     endpoint: 'login',
     handler: mock.login
