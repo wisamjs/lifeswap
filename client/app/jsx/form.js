@@ -48,4 +48,80 @@ var HelloUser = React.createClass({
     )
   }
 });
-React.render(React.createElement(HelloUser, null), document.getElementById('app'));
+
+//Page title
+var Title = React.createClass({
+  render: function(){
+    return (
+        <h2>{this.props.name}</h2>
+      )
+  }
+});
+
+
+var Description = React.createClass({
+  render: function(){
+    return (
+      <p>{this.props.info}</p>
+    )
+
+  }
+});
+
+var Checkbox = React.createClass({
+  getInitialState: function(){
+    return {isChecked:false};
+  },
+  toggleInput: function(e){
+    this.setState({isChecked:e.target.checked});
+  },
+  display: function(){
+    if (this.state.isChecked){
+      return 'checked'
+    }else{
+      return 'unchecked'
+    }
+  },
+  render: function(){
+    return (
+      <div>
+        <input type="checkbox" value={this.props.value} onClick={this.toggleInput} /> {this.props.value} ({this.display()})
+      </div>
+      )
+  }
+});
+
+
+var Amenities = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <Checkbox value="Desk"/>
+        <Checkbox value="Internet Connection" />
+        <Checkbox value="External Monitor" />
+        <Checkbox value="Keyboard" />
+        <Checkbox value="Laptop Stand" />
+        <Checkbox value="Wifi" />
+        <br/>
+
+      </div>
+
+      )
+  }
+});
+
+
+var Form = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <Title name="Life Swap Form"/>
+        <Description info="Fill out the form below:"/>
+        <Amenities/>
+      </div>
+      )
+  }
+});
+
+React.render(<Form />, document.getElementById('app'));
+
