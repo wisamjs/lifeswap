@@ -58,55 +58,93 @@ var Title = React.createClass({
   }
 });
 
-
+//Description
 var Description = React.createClass({
   render: function(){
     return (
       <p>{this.props.info}</p>
     )
-
   }
 });
 
+// Input checkboxes for amenities
 var Checkbox = React.createClass({
-  getInitialState: function(){
-    return {isChecked:false};
-  },
-  toggleInput: function(e){
-    this.setState({isChecked:e.target.checked});
-  },
-  display: function(){
-    if (this.state.isChecked){
-      return 'checked'
-    }else{
-      return 'unchecked'
-    }
-  },
   render: function(){
     return (
       <div>
-        <input type="checkbox" value={this.props.value} onClick={this.toggleInput} /> {this.props.value} ({this.display()})
+        <input type="checkbox" value={this.props.value} onClick={this.props.update} /> {this.props.value}
       </div>
       )
   }
 });
 
+
+
+//Paragraph display
+var Preview = React.createClass({
+        display: function(){
+         return this.props.amenities().toString();
+    },
+    render: function(){
+        return (
+        <div>
+          Hi there! I care about the following amenities: <br /> <br /> {this.display()}
+        </div>
+        )
+    }
+});
 
 var Amenities = React.createClass({
+    getInitialState: function(){
+
+        var initState = {items:[]};
+        var amenities = ['Desk','External Monitor','Keyboard Stand','Laptop Stand','Wifi'];
+
+        //Make an object for each amenity
+        //and add it to initial state
+        amenities.forEach(function(item){
+            initState.items.push({value:item,isChecked:false});
+        })
+
+        return initState;
+
+    },
   render: function(){
+
+    //Create a checkbox for each amenity object
+    var listItems = this.state.items.map(function(item){
+      return <Checkbox key={item.value} value={item.value} update={this.toggleInput} />
+    },this);
     return (
       <div>
-        <Checkbox value="Desk"/>
-        <Checkbox value="Internet Connection" />
-        <Checkbox value="External Monitor" />
-        <Checkbox value="Keyboard" />
-        <Checkbox value="Laptop Stand" />
-        <Checkbox value="Wifi" />
+        {listItems}
         <br/>
 
+        <Preview amenities={this.getChecked}/>
       </div>
 
       )
+  },
+  //Update isChecked property
+  //of amenity that was checked/unchecked
+   toggleInput: function(e){
+    var updatedItems = this.state.items;
+    updatedItems.forEach(function(item){
+      if (item.value === e.target.value){
+        item.isChecked = e.target.checked;
+      }
+     });
+     this.setState({items:updatedItems});
+    //Return names of all checked amenities
+  },getChecked:function(){
+
+    return this.state.items.filter(function(i){
+         return i.isChecked;
+     }).map(function(i){
+        return i.value;
+     });
+
+
   }
 });
 
