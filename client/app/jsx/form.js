@@ -2,7 +2,7 @@ var FirstName = React.createClass({
   render: function(){
     return (
       <div>
-        <label for={this.props.id}>First Name: </label>
+        <label htmlFor={this.props.id}>First Name: </label>
         <input id={this.props.id} placeholder="Enter your first name" type="text" value={this.props.value} onChange={this.props.onChange} />
       </div>
       )
@@ -13,7 +13,7 @@ var LastName = React.createClass({
   render: function(){
     return (
       <div>
-        <label for={this.props.id}>Last Name: </label>
+        <label htmlFor={this.props.id}>Last Name: </label>
         <input id={this.props.id} placeholder="Enter your last name" type="text" value={this.props.value} onChange={this.props.onChange} />
       </div>
       )
@@ -24,7 +24,7 @@ var Location = React.createClass({
   render: function(){
     return (
       <div>
-        <label for={this.props.id}>Location: </label>
+        <label htmlFor={this.props.id}>Location: </label>
         <input id={this.props.id} placeholder="Enter your location" type="text" value={this.props.value} onChange={this.props.onChange} />
       </div>
       )
@@ -35,7 +35,7 @@ var Property = React.createClass({
   render: function(){
     return (
       <div>
-        <label for={this.props.id}>Property Info: </label>
+        <label htmlFor={this.props.id}>Property Info: </label>
         <textarea id={this.props.id} placeholder="Enter details about your home" value={this.props.value} onChange={this.props.onChange} />
       </div>
       )
