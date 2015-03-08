@@ -6,7 +6,7 @@ Lifeswap is a a simple AirBnb-like app, created mostly as an excuse to play arou
 ###Setup
 To run on your machine, fork/clone and then type the following in your terminal:
 ```sh
-$ git clone [git-repo-url]
+$ git clone https://github.com/wzaghal/lifeswap.git
 $ cd lifeswap
 $ npm install
 $ bower install
